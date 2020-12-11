@@ -10,7 +10,6 @@ def check(name, roll):
         for row in reader:
             if roll==row['College Roll']:
                 result = match(row['Name'], name)
-                print(result)
                 if result>=.8:
                     return True
         return False

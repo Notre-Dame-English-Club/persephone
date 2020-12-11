@@ -19,12 +19,13 @@ async def on_message(message):
             splitter = message.content.split()
             roll = splitter[-1]
             name = " ".join(splitter[:-1])
+            channel = client.get_channel(786770781051944971)
             if check(name, roll):
-                channel = client.get_channel(786770781051944971)
-                await channel.send(f"Name: {name}\nRoll:{roll}\nRegistered!")
-                await message.delete()
-                await member.add_roles(guild.get_role(785872750505492501))
+                await channel.send(f"Name: {name}\nRoll:{roll}\nRegistered!\nReference User: <@{message.author.id}>")
+                await message.author.add_roles(guild.get_role(785872750505492501))
+                await message.author.add_roles(guild.get_role(786227916894896138))
             else:
-                await channel.send(f"Name: `{name}` and Roll: `{roll}` unmatched")
+                await channel.send(f"Name: `{name}` and Roll: `{roll}` unmatched\nReference User: <@{message.author.id}>")
+            await message.delete()
 
 client.run(token)
