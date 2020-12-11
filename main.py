@@ -12,18 +12,19 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    guild = client.get_guild(738466199263903792)
+    guild = client.get_guild(785871363080060999)
     if message.author != client.user:
-        if message.channel.id == 738653551064121354:
+        if message.channel.id == 786229115874705418:
             print(message.content)
             splitter = message.content.split()
             roll = splitter[-1]
             name = " ".join(splitter[:-1])
             if check(name, roll):
-                channel = client.get_channel(786787040774979585)
-                await channel.send(f"Name: {name}\nRoll:{roll}")
+                channel = client.get_channel(786770781051944971)
+                await channel.send(f"Name: {name}\nRoll:{roll}\nRegistered!")
                 await message.delete()
+                await member.add_roles(guild.get_role(785872750505492501))
             else:
-                print("sad")
+                await channel.send(f"Name: `{name}` and Roll: `{roll}` unmatched")
 
 client.run(token)
