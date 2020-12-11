@@ -1,1 +1,4 @@
 virtualenv/*
+Heroku/*
+token.txt
+discordvars.py
